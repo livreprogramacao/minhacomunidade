@@ -57,6 +57,59 @@ Um conjunto de comerciantes e consumidores.
 
 + Response 204
 
+# Group Categorias
+
+## Categorias Collection [/categorias]
+
+### GET
+
++ Response 200 (application/json)
+    + Attributes
+        - categorias (array[Categoria Full])
+
+### POST
+
++ Request (application/json)
+    + Attributes
+        - categorias (Categoria Create)
+
++ Response 200 (application/json)
+    + Attributes
+        - categorias (Categoria Full)
+
+## Categoria Resource [/categorias/{id}]
+
++ Parameters
+  + id: `fRge5` - The unique ID of the comunidade.
+
+### GET
+
++ Response 200 (application/json)
+    + Attributes
+        - categorias (Categoria Full)
+
+### PUT
+
++ Request (application/json)
+    + Attributes
+        - categorias (Categoria Full)
+
++ Response 200 (application/json)
+    + Attributes
+        - categorias (Categoria Full)
+
+### PATCH
+
++ Request (application/json)
+    + Attributes
+        - categorias (Categoria Full)
+
++ Response 204 (application/json)
+
+### DELETE
+
++ Response 204
+
 # Data Structures
 
 ## Comunidade Create (object)
@@ -71,15 +124,27 @@ Um grupo de comerciantes e consumidores.
 - id: 1 (number, required) - O identificador exclusivo de uma comunidade.
 - nome: Parque de Ferraz de Vasconcelos (string, required) - Nome da comunidade.
 
-## Categoria (object)
+## Categoria Create (object)
+Um grupo de categorias.
+
+## Properties
+- nome: Alimentos (string, required) - Nome da categoria.
+
+## Categoria Full (object)
 Um grupo de categorias.
 
 ## Properties
 - id: 1 (number, required) - O identificador exclusivo de uma comunidade
 - nome: Alimentos (string, required) - Nome da categoria.
 
+## Comerciante Create (object)
+Um fornecedor de produtos ou serviços para a comunidade.
 
-## Comerciante (object)
+## Properties
+- nome: Pães dos Sonhos (string, required) - Nome fantasia do comerciante.
+- comunidade: 10 (number, required) - Código da comunidade.
+
+## Comerciante Full (object)
 Um fornecedor de produtos ou serviços para a comunidade.
 
 ## Properties
@@ -87,7 +152,14 @@ Um fornecedor de produtos ou serviços para a comunidade.
 - nome: Pães dos Sonhos (string, required) - Nome fantasia do comerciante.
 - comunidade: 10 (number, required) - Código da comunidade.
 
-## Produto (object)
+## Produto Create (object)
+Um produto oferecido pelo comerciante.
+
+## Properties
+- nome: Pão integral (string, required) - Nome do produto.
+- categoria: 10 (number, required) - Código da categoria.
+
+## Produto Full (object)
 Um produto oferecido pelo comerciante.
 
 ## Properties
@@ -96,7 +168,14 @@ Um produto oferecido pelo comerciante.
 - categoria: 10 (number, required) - Código da categoria.
 
 
-## Servico (object)
+## Servico Create (object)
+Um serviço prestado pelo comerciante.
+
+## Properties
+- nome: Pintura da residência (string, required) - Nome da categoria.
+- categoria: 10 (number, required) - Código da categoria.
+
+## Servico Full (object)
 Um serviço prestado pelo comerciante.
 
 ## Properties
@@ -105,7 +184,15 @@ Um serviço prestado pelo comerciante.
 - categoria: 10 (number, required) - Código da categoria.
 
 
-## Pedido (object)
+## Pedido Create (object)
+Um pedido realizado pelo consumidor para um comerciante.
+
+## Properties
+- data: 10/08/2018 (string, required) - Data da criação do pedido.
+- consumidor: 100 (number, required) - Código do consumidor responsável pelo pedido.
+- comerciante: 1001 (number, required) - Código do comerciante responsável.
+
+## Pedido Full (object)
 Um pedido realizado pelo consumidor para um comerciante.
 
 ## Properties
@@ -115,7 +202,17 @@ Um pedido realizado pelo consumidor para um comerciante.
 - comerciante: 1001 (number, required) - Código do comerciante responsável.
 
 
-## ItemProduto (object)
+## ItemProduto Create (object)
+Um produto associado ao item do pedido realizado pelo consumidor para um comerciante.
+
+## Properties
+- pedido: 2001 (number, required) - Nome da categoria.
+- produto: 10 (number, required) - Código do produto selecionado.
+- quantidade: 1 (number, required) - Quantidade de produtos do pedido.
+- preco: 12.50 (number, required) - Valor do produto.
+- subtotal: 12.50 (number, required) - subtotal (quantidade * preço) do pedido.
+
+## ItemProduto Full (object)
 Um produto associado ao item do pedido realizado pelo consumidor para um comerciante.
 
 ## Properties
@@ -126,8 +223,17 @@ Um produto associado ao item do pedido realizado pelo consumidor para um comerci
 - preco: 12.50 (number, required) - Valor do produto.
 - subtotal: 12.50 (number, required) - subtotal (quantidade * preço) do pedido.
 
+## ItemServiço Create (object)
+Um serviço associado ao item do pedido realizado pelo consumidor para um comerciante.
 
-## ItemServiço (object)
+## Properties
+- pedido: 2001 (number, required) - Nome da categoria.
+- serviço: 10 (number, required) - Código do serviço selecionado.
+- quantidade: 1 (number, required) - Quantidade de serviços do pedido.
+- preço: 12.50 (number, required) - Valor do serviço.
+- subtotal: 12.50 (number, required) - subtotal (quantidade * preço) do pedido.
+
+## ItemServiço Full (object)
 Um serviço associado ao item do pedido realizado pelo consumidor para um comerciante.
 
 ## Properties
@@ -139,7 +245,14 @@ Um serviço associado ao item do pedido realizado pelo consumidor para um comerc
 - subtotal: 12.50 (number, required) - subtotal (quantidade * preço) do pedido.
 
 
-## Anuncio (object)
+## Anuncio Create (object)
+Um anúncio para os consumidores da comunidade associada ao comerciante.
+
+## Properties
+- titulo: Oferta especial para venda (string, required) - O título do anúncio.
+- comerciante: 10 (number, required) - O comerciante responsável pelo anuncio.
+
+## Anuncio Full (object)
 Um anúncio para os consumidores da comunidade associada ao comerciante.
 
 ## Properties
