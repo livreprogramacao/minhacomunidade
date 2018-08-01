@@ -5,14 +5,7 @@ HOST: http://polls.apiblueprint.org/
 
 Polls is a simple API allowing consumers to view polls and vote in them.
 
-# Description
-
-blah...blah...blah...blah
-
-# Metadata
-
-blah...blah...blah...blah
-
+# Data Structures
 
 # Comunidade
 Um grupo de comerciantes e consumidores.
@@ -32,7 +25,7 @@ Um grupo de categorias.
 - nome: Alimentos (string, required) - Nome da categoria.
 
 
-#Comerciante ( id bigint identity, nome varchar(100) not null, comunidade integer not null, categoria integer not null );
+#Comerciante
 Um fornecedor de produtos ou serviços para a comunidade.
 
 ## Properties
@@ -41,7 +34,7 @@ Um fornecedor de produtos ou serviços para a comunidade.
 - nome: Pães dos Sonhos (string, required) - Nome fantasia do comerciante.
 - comunidade: 10 (number, required) - Código da comunidade.
 
-#Produto     ( id bigint identity, nome varchar(100) not null, comerciante integer not null );
+#Produto
 Um produto oferecido pelo comerciante.
 
 ## Properties
