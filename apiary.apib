@@ -4,20 +4,9 @@ HOST: http://polls.apiblueprint.org/
 # Minha Comunidade API
 Um conjunto de comerciantes e consumidores.
 
-## Comunidades Collection [/comunidades]
+## Coleção de comunidades [/comunidades]
 
-### Lista de Comunidades [GET]
-Consulta a coleção de comunidades.
-
-+ Response 200 (application/json)
-
-        [
-            {
-                "nome": "Parque de Ferraz de Vasconcelos"
-            }
-        ]
-
-### Inclui uma nova Comunidade [POST]
+### Inclui uma nova comunidade [POST]
 Você pode criar sua própria comunidade usando essa ação.
 
 + Request (application/json)
@@ -39,7 +28,28 @@ Você pode criar sua própria comunidade usando essa ação.
                 "nome": "Parque de Ferraz de Vasconcelos"
             }
 
-### Atualizar uma Comunidade [PUT]
+### Lista de comunidades [GET]
+Consulta a coleção de comunidades.
+
++ Response 200 (application/json)
+
+        [
+            {
+                "nome": "Parque de Ferraz de Vasconcelos"
+            }
+        ]
+
++ Attributes (array[Comunidade])
+
+### Consulta uma comunidade [GET/{id}]
+Consulta a coleção de comunidades.
+
++ Response 200 (application/json)
+
++ Attributes
+    - comunidade (Comunidade)
+
+### Atualizar uma comunidade [PUT]
 Você pode atualizar uma comunidade usando essa ação.
 
 + Request (application/json)
@@ -58,12 +68,12 @@ Você pode atualizar uma comunidade usando essa ação.
                 "nome": "Parque de Ferraz de Vasconcelos"
             }
 
-### Atualização parcial dos atributos da Comunidade [PATCH]
+### Atualização parcial dos atributos da comunidade [PATCH]
 Você pode atualizar parcialmente os atributos da comunidade usando essa ação.
 
 + Response 204 (application/json)
 
-### Remove uma Comunidade [DELETE]
+### Remove uma comunidade [DELETE]
 Você pode remover uma comunidade usando essa ação.
 
 + Response 204 (application/json)
