@@ -4,96 +4,77 @@ HOST: http://polls.apiblueprint.org/
 # Minha Comunidade API
 Um conjunto de comerciantes e consumidores.
 
-## Coleção de comunidades [/comunidades]
+# Group Comunidades
 
-### Inclui uma nova comunidade [POST]
-Você pode criar sua própria comunidade usando essa ação.
+## Comunidades Collection [/comunidades]
+
+### GET
+
++ Response 200 (application/json)
+    + Attributes
+        - comunidades (array[Comunidade Full])
+
+### POST
 
 + Request (application/json)
-
-        {
-            "nome": "Parque de Ferraz de Vasconcelos"
-        }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /comunidades/1
-
-    + Body
-
-            {
-                "id": 1,
-                "nome": "Parque de Ferraz de Vasconcelos"
-            }
-
-### Lista de comunidades [GET]
-Consulta a coleção de comunidades.
+    + Attributes
+        - comunidades (Comunidade Create)
 
 + Response 200 (application/json)
+    + Attributes
+        - comunidades (Comunidade Full)
 
-        [
-            {
-                "nome": "Parque de Ferraz de Vasconcelos"
-            }
-        ]
+## Comunidade Resource [/comunidades/{id}]
 
-+ Attributes (array[Comunidade])
++ Parameters
+  + id: `fRge5` - The unique ID of the comunidade.
 
-### Consulta uma comunidade [GET/{id}]
-Consulta a coleção de comunidades.
+### GET
 
 + Response 200 (application/json)
+    + Attributes
+        - comunidades (Comunidade Full)
 
-+ Attributes
-    - comunidade (Comunidade)
-
-### Atualizar uma comunidade [PUT]
-Você pode atualizar uma comunidade usando essa ação.
+### PUT
 
 + Request (application/json)
-
-        {
-            "id": 1,
-            "nome": "Parque de Ferraz de Vasconcelos"
-        }
+    + Attributes
+        - comunidades (Comunidade Full)
 
 + Response 200 (application/json)
+    + Attributes
+        - comunidades (Comunidade Full)
 
-    + Body
+### PATCH
 
-            {
-                "id": 1,
-                "nome": "Parque de Ferraz de Vasconcelos"
-            }
-
-### Atualização parcial dos atributos da comunidade [PATCH]
-Você pode atualizar parcialmente os atributos da comunidade usando essa ação.
++ Request (application/json)
+    + Attributes
+        - comunidades (Comunidade Full)
 
 + Response 204 (application/json)
 
-### Remove uma comunidade [DELETE]
-Você pode remover uma comunidade usando essa ação.
+### DELETE
 
-+ Response 204 (application/json)
-
++ Response 204
 
 # Data Structures
 
-## Comunidade (object)
+## Comunidade Create (object)
 Um grupo de comerciantes e consumidores.
+
+## Properties
+- nome: Parque de Ferraz de Vasconcelos (string, required) - Nome da comunidade.
+
+## Comunidade Full (object)
 
 ## Properties
 - id: 1 (number, required) - O identificador exclusivo de uma comunidade.
 - nome: Parque de Ferraz de Vasconcelos (string, required) - Nome da comunidade.
 
-
 ## Categoria (object)
 Um grupo de categorias.
 
 ## Properties
-
 - id: 1 (number, required) - O identificador exclusivo de uma comunidade
 - nome: Alimentos (string, required) - Nome da categoria.
 
@@ -102,7 +83,6 @@ Um grupo de categorias.
 Um fornecedor de produtos ou serviços para a comunidade.
 
 ## Properties
-
 - id: 1 (number, required) - O identificador exclusivo de uma comunidade
 - nome: Pães dos Sonhos (string, required) - Nome fantasia do comerciante.
 - comunidade: 10 (number, required) - Código da comunidade.
@@ -111,38 +91,34 @@ Um fornecedor de produtos ou serviços para a comunidade.
 Um produto oferecido pelo comerciante.
 
 ## Properties
-
 - id: 10 (number, required) - O identificador exclusivo de uma comunidade
 - nome: Pão integral (string, required) - Nome do produto.
 - categoria: 10 (number, required) - Código da categoria.
 
 
-#Servico
+## Servico (object)
 Um serviço prestado pelo comerciante.
 
 ## Properties
-
 - id: 1 (number, required) - O identificador exclusivo do serviço.
 - nome: Pintura da residência (string, required) - Nome da categoria.
 - categoria: 10 (number, required) - Código da categoria.
 
 
-#Pedido
+## Pedido (object)
 Um pedido realizado pelo consumidor para um comerciante.
 
 ## Properties
-
 - id: 1 (number, required) - O identificador exclusivo do pedido.
 - data: 10/08/2018 (string, required) - Data da criação do pedido.
 - consumidor: 100 (number, required) - Código do consumidor responsável pelo pedido.
 - comerciante: 1001 (number, required) - Código do comerciante responsável.
 
 
-#ItemProduto
+## ItemProduto (object)
 Um produto associado ao item do pedido realizado pelo consumidor para um comerciante.
 
 ## Properties
-
 - id: 1 (number, required) - O identificador exclusivo do item.
 - pedido: 2001 (number, required) - Nome da categoria.
 - produto: 10 (number, required) - Código do produto selecionado.
@@ -151,11 +127,10 @@ Um produto associado ao item do pedido realizado pelo consumidor para um comerci
 - subtotal: 12.50 (number, required) - subtotal (quantidade * preço) do pedido.
 
 
-#ItemServiço
+## ItemServiço (object)
 Um serviço associado ao item do pedido realizado pelo consumidor para um comerciante.
 
 ## Properties
-
 - id: 1 (number, required) - O identificador exclusivo de uma comunidade
 - pedido: 2001 (number, required) - Nome da categoria.
 - serviço: 10 (number, required) - Código do serviço selecionado.
@@ -164,11 +139,10 @@ Um serviço associado ao item do pedido realizado pelo consumidor para um comerc
 - subtotal: 12.50 (number, required) - subtotal (quantidade * preço) do pedido.
 
 
-#Anuncio
+## Anuncio (object)
 Um anúncio para os consumidores da comunidade associada ao comerciante.
 
 ## Properties
-
 - id: 1 (number, required) - O identificador exclusivo do anuncio.
 - titulo: Oferta especial para venda (string, required) - O título do anúncio.
 - comerciante: 10 (number, required) - O comerciante responsável pelo anuncio.
