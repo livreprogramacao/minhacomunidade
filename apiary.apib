@@ -14,96 +14,95 @@ blah...blah...blah...blah
 blah...blah...blah...blah
 
 
-# Cakes API
-Cakes is an API used to store and consume information about the most loved Cakes here at Cheesecake Labs.
+# Comunidade
+Um grupo de comerciantes e consumidores.
 
-# Group Cakes
+## Properties
 
-## Cakes [/cakes/]
+- id: 1 (number, required) - O identificador exclusivo de uma comunidade
+- nome: Parque de Ferraz de Vasconcelos (string, required) - Nome da comunidade
 
-### List all Cakes [GET]
 
-+ Response 200 (application/json)
+#Categoria
+Um grupo de categorias.
 
-+ Attributes (array[Cake])
+## Properties
 
-# Data Structures
+- id: 1 (number, required) - O identificador exclusivo de uma comunidade
+- nome: Alimentos (string, required) - Nome da categoria.
 
-## Cake (object)
-+ id: `1` (string, required) - The unique ID of a Cake.
-+ name: `Cheesecake` (string, required) - The name of a Cake.
-+ rating: `5/5` (string, optional) - The rating of a Cake.
 
-## Questions Collection [/questions]
+#Comerciante ( id bigint identity, nome varchar(100) not null, comunidade integer not null, categoria integer not null );
+Um fornecedor de produtos ou serviços para a comunidade.
 
-### List All Questions [GET]
+## Properties
 
-+ Response 200 (application/json)
+- id: 1 (number, required) - O identificador exclusivo de uma comunidade
+- nome: Pães dos Sonhos (string, required) - Nome fantasia do comerciante.
+- comunidade: 10 (number, required) - Código da comunidade.
 
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
+#Produto     ( id bigint identity, nome varchar(100) not null, comerciante integer not null );
+Um produto oferecido pelo comerciante.
 
-### Create a New Question [POST]
+## Properties
 
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
+- id: 10 (number, required) - O identificador exclusivo de uma comunidade
+- nome: Pão integral (string, required) - Nome do produto.
+- categoria: 10 (number, required) - Código da categoria.
 
-+ Request (application/json)
 
-        {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
-        }
+#Servico
+Um serviço prestado pelo comerciante.
 
-+ Response 201 (application/json)
+## Properties
 
-    + Headers
+- id: 1 (number, required) - O identificador exclusivo do serviço.
+- nome: Pintura da residência (string, required) - Nome da categoria.
+- categoria: 10 (number, required) - Código da categoria.
 
-            Location: /questions/2
 
-    + Body
+#Pedido
+Um pedido realizado pelo consumidor para um comerciante.
 
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
-            }
+## Properties
+
+- id: 1 (number, required) - O identificador exclusivo do pedido.
+- data: 10/08/2018 (date, required) - Data da criação do pedido.
+- consumidor: 100 (number, required) - Código do consumidor responsável pelo pedido.
+- comerciante: 1001 (number, required) - Código do comerciante responsável.
+
+
+#ItemProduto
+Um produto associado ao item do pedido realizado pelo consumidor para um comerciante.
+
+## Properties
+
+- id: 1 (number, required) - O identificador exclusivo do item.
+- pedido: 2001 (number, required) - Nome da categoria.
+- produto: 10 (number, required) - Código do produto selecionado.
+- quantidade: 1 (number, required) - Quantidade de produtos do pedido.
+- preco: 12.50 (number, required) - Valor do produto.
+- subtotal: 12.50 (number, required) - subtotal (quantidade * preço) do pedido.
+
+
+#ItemServiço
+Um serviço associado ao item do pedido realizado pelo consumidor para um comerciante.
+
+## Properties
+
+- id: 1 (number, required) - O identificador exclusivo de uma comunidade
+- pedido: 2001 (number, required) - Nome da categoria.
+- serviço: 10 (number, required) - Código do serviço selecionado.
+- quantidade: 1 (number, required) - Quantidade de serviços do pedido.
+- preço: 12.50 (number, required) - Valor do serviço.
+- subtotal: 12.50 (number, required) - subtotal (quantidade * preço) do pedido.
+
+
+#Anuncio
+Um anúncio para os consumidores da comunidade associada ao comerciante.
+
+## Properties
+
+- id: 1 (number, required) - O identificador exclusivo do anuncio.
+- titulo: Oferta especial para venda (string, required) - O título do anúncio.
+- comerciante: Pães dos Sonhos (number, required) - O comerciante responsável pelo anuncio.
