@@ -27,7 +27,7 @@ Recursos para as pessoas que vivem em comunidades poderem utilizar serviços adm
 ## Comunidade Resource [/comunidades/{id}]
 
 + Parameters
-  + id: `fRge5` - The unique ID of the comunidade.
+  + id: 1 - The unique ID of the comunidade.
 
 ### GET
 
@@ -80,7 +80,7 @@ Recursos para as pessoas que vivem em comunidades poderem utilizar serviços adm
 ## Categoria Resource [/categorias/{id}]
 
 + Parameters
-  + id: `fRge5` - The unique ID of the comunidade.
+  + id: 1 - The unique ID of the categoria.
 
 ### GET
 
@@ -139,7 +139,7 @@ Recursos para as pessoas que vivem em comunidades poderem utilizar serviços adm
 ## Produto Resource [/produtos/{id}]
 
 + Parameters
-  + id: `fRge5` - The unique ID of the comunidade.
+  + id: 1 - The unique ID of the produto.
 
 ### GET
 
@@ -195,7 +195,7 @@ Recursos para as pessoas que vivem em comunidades poderem utilizar serviços adm
 ## Servico Resource [/servicos/{id}]
 
 + Parameters
-  + id: `fRge5` - The unique ID of the comunidade.
+  + id: 1 - The unique ID of the servico.
 
 ### GET
 
@@ -251,7 +251,7 @@ Recursos para as pessoas que vivem em comunidades poderem utilizar serviços adm
 ## Pedido Resource [/pedidos/{id}]
 
 + Parameters
-  + id: `fRge5` - The unique ID of the comunidade.
+  + id: 1 - The unique ID of the pedido.
 
 ### GET
 
@@ -307,7 +307,7 @@ Recursos para as pessoas que vivem em comunidades poderem utilizar serviços adm
 ## Anuncio Resource [/anuncios/{id}]
 
 + Parameters
-  + id: `fRge5` - The unique ID of the comunidade.
+  + id: 1 - The unique ID of the anuncio.
 
 ### GET
 
@@ -361,7 +361,7 @@ Um grupo de categorias.
 Um grupo de categorias.
 
 ## Properties
-- id: 1 (number, required) - O identificador exclusivo de uma comunidade
+- id: 1 (number, required) - O identificador exclusivo de uma categoria
 - nome: Alimentos (string, required) - Nome da categoria.
 
 ## Comerciante Create (object)
@@ -375,7 +375,7 @@ Um fornecedor de produtos ou serviços para a comunidade.
 Um fornecedor de produtos ou serviços para a comunidade.
 
 ## Properties
-- id: 1 (number, required) - O identificador exclusivo de uma comunidade
+- id: 1 (number, required) - O identificador exclusivo de um comerciante.
 - nome: Pães dos Sonhos (string, required) - Nome fantasia do comerciante.
 - comunidade: 10 (number, required) - Código da comunidade.
 
@@ -390,7 +390,7 @@ Um produto oferecido pelo comerciante.
 Um produto oferecido pelo comerciante.
 
 ## Properties
-- id: 10 (number, required) - O identificador exclusivo de uma comunidade
+- id: 10 (number, required) - O identificador exclusivo de um produto.
 - nome: Pão integral (string, required) - Nome do produto.
 - categoria: 10 (number, required) - Código da categoria.
 
@@ -464,7 +464,7 @@ Um serviço associado ao item do pedido realizado pelo consumidor para um comerc
 Um serviço associado ao item do pedido realizado pelo consumidor para um comerciante.
 
 ## Properties
-- id: 1 (number, required) - O identificador exclusivo de uma comunidade
+- id: 1 (number, required) - O identificador exclusivo do item.
 - pedido: 2001 (number, required) - Nome da categoria.
 - serviço: 10 (number, required) - Código do serviço selecionado.
 - quantidade: 1 (number, required) - Quantidade de serviços do pedido.
