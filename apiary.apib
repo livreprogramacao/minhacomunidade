@@ -1,0 +1,109 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# Minha Comunidade API
+
+Polls is a simple API allowing consumers to view polls and vote in them.
+
+# Description
+
+blah...blah...blah...blah
+
+# Metadata
+
+blah...blah...blah...blah
+
+
+# Cakes API
+Cakes is an API used to store and consume information about the most loved Cakes here at Cheesecake Labs.
+
+# Group Cakes
+
+## Cakes [/cakes/]
+
+### List all Cakes [GET]
+
++ Response 200 (application/json)
+
++ Attributes (array[Cake])
+
+# Data Structures
+
+## Cake (object)
++ id: `1` (string, required) - The unique ID of a Cake.
++ name: `Cheesecake` (string, required) - The name of a Cake.
++ rating: `5/5` (string, optional) - The rating of a Cake.
+
+## Questions Collection [/questions]
+
+### List All Questions [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "question": "Favourite programming language?",
+                "published_at": "2015-08-05T08:40:51.620Z",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "votes": 2048
+                    }, {
+                        "choice": "Python",
+                        "votes": 1024
+                    }, {
+                        "choice": "Objective-C",
+                        "votes": 512
+                    }, {
+                        "choice": "Ruby",
+                        "votes": 256
+                    }
+                ]
+            }
+        ]
+
+### Create a New Question [POST]
+
+You may create your own question using this action. It takes a JSON
+object containing a question and a collection of answers in the
+form of choices.
+
++ Request (application/json)
+
+        {
+            "question": "Favourite programming language?",
+            "choices": [
+                "Swift",
+                "Python",
+                "Objective-C",
+                "Ruby"
+            ]
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?",
+                "published_at": "2015-08-05T08:40:51.620Z",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "votes": 0
+                    }, {
+                        "choice": "Python",
+                        "votes": 0
+                    }, {
+                        "choice": "Objective-C",
+                        "votes": 0
+                    }, {
+                        "choice": "Ruby",
+                        "votes": 0
+                    }
+                ]
+            }
