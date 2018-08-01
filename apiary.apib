@@ -2,21 +2,84 @@ FORMAT: 1A
 HOST: http://polls.apiblueprint.org/
 
 # Minha Comunidade API
+Um conjunto de comerciantes e consumidores.
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+## Comunidades Collection [/comunidades]
+
+### Lista de Comunidades [GET]
+Consulta a coleção de comunidades.
+
++ Response 200 (application/json)
+
+        [
+            {
+                "nome": "Parque de Ferraz de Vasconcelos"
+            }
+        ]
+
+### Inclui uma nova Comunidade [POST]
+Você pode criar sua própria comunidade usando essa ação.
+
++ Request (application/json)
+
+        {
+            "nome": "Parque de Ferraz de Vasconcelos"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /comunidades/1
+
+    + Body
+
+            {
+                "id": 1,
+                "nome": "Parque de Ferraz de Vasconcelos"
+            }
+
+### Atualizar uma Comunidade [PUT]
+Você pode atualizar uma comunidade usando essa ação.
+
++ Request (application/json)
+
+        {
+            "id": 1,
+            "nome": "Parque de Ferraz de Vasconcelos"
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "id": 1,
+                "nome": "Parque de Ferraz de Vasconcelos"
+            }
+
+### Atualização parcial dos atributos da Comunidade [PATCH]
+Você pode atualizar parcialmente os atributos da comunidade usando essa ação.
+
++ Response 204 (application/json)
+
+### Remove uma Comunidade [DELETE]
+Você pode remover uma comunidade usando essa ação.
+
++ Response 204 (application/json)
+
 
 # Data Structures
 
-# Comunidade
+## Comunidade (object)
 Um grupo de comerciantes e consumidores.
 
 ## Properties
+- id: 1 (number, required) - O identificador exclusivo de uma comunidade.
+- nome: Parque de Ferraz de Vasconcelos (string, required) - Nome da comunidade.
 
-- id: 1 (number, required) - O identificador exclusivo de uma comunidade
-- nome: Parque de Ferraz de Vasconcelos (string, required) - Nome da comunidade
 
-
-#Categoria
+## Categoria (object)
 Um grupo de categorias.
 
 ## Properties
@@ -25,7 +88,7 @@ Um grupo de categorias.
 - nome: Alimentos (string, required) - Nome da categoria.
 
 
-#Comerciante
+## Comerciante (object)
 Um fornecedor de produtos ou serviços para a comunidade.
 
 ## Properties
@@ -34,7 +97,7 @@ Um fornecedor de produtos ou serviços para a comunidade.
 - nome: Pães dos Sonhos (string, required) - Nome fantasia do comerciante.
 - comunidade: 10 (number, required) - Código da comunidade.
 
-#Produto
+## Produto (object)
 Um produto oferecido pelo comerciante.
 
 ## Properties
