@@ -6,12 +6,14 @@ Recursos para as pessoas que vivem em comunidades poderem utilizar serviços adm
 
 # Group Comunidades
 
-## Comunidades Collection [/comunidades?{offsize}&{limit}]
+## Comunidades Collection [/comunidades?limit={limit}&offset={offset}]
 
 ### GET
 + Parameters
-    + offsize (optional, number) ... Maximum number of posts to retrieve
     + limit (optional, number) ... Maximum number of posts to retrieve
+        + Default: `10`
+    + offset (optional, number) ... Maximum number of posts to retrieve
+        + Default: `30`
 
 + Response 200 (application/json)
     + Attributes
