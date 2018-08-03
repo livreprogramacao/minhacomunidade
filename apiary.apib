@@ -16,9 +16,8 @@ Recursos para as pessoas que vivem em comunidades poderem utilizar serviços adm
         + Default: `30`
 
 + Request 
-
     + Headers
-    
+
             Authorization: Bearer abc123
         
 
@@ -293,6 +292,23 @@ Recursos para as pessoas que vivem em comunidades poderem utilizar serviços adm
 
 + Response 204
 
+## Pedidos itens Collection [/pedidos/{id}/itens]
+
+### GET
+
++ Response 200 (application/json)
+    + Attributes
+        - itens (array[Item Full])
+
+### POST
+
++ Request (application/json)
+    + Attributes
+        - itens (Item Create)
+
++ Response 200 (application/json)
+    + Attributes
+        - itens (Item Full)
 
 
 
@@ -430,6 +446,7 @@ Um pedido realizado pelo consumidor para um comerciante.
 - data: 10/08/2018 (string, required) - Data da criação do pedido.
 - consumidor: 100 (number, required) - Código do consumidor responsável pelo pedido.
 - comerciante: 1001 (number, required) - Código do comerciante responsável.
+- itens: [{}] (array[Item Create], required) - Itens associados ao pedido
 
 ## Pedido Full (object)
 Um pedido realizado pelo consumidor para um comerciante.
@@ -439,49 +456,30 @@ Um pedido realizado pelo consumidor para um comerciante.
 - data: 10/08/2018 (string, required) - Data da criação do pedido.
 - consumidor: 100 (number, required) - Código do consumidor responsável pelo pedido.
 - comerciante: 1001 (number, required) - Código do comerciante responsável.
+- itens: [{ "produto": 10, "servico":  0, "detalhe": "Presente", "quantidade": 1, "preco": 12.50 }, { "produto": 0, "servico":  120, "detalhe": "enviar orçamento", "quantidade": 1, "preco": 12.50 }] (array, required) - Itens associados ao pedido
 
 
-## ItemProduto Create (object)
+## Item Create (object)
 Um produto associado ao item do pedido realizado pelo consumidor para um comerciante.
 
 ## Properties
-- pedido: 2001 (number, required) - Nome da categoria.
 - produto: 10 (number, required) - Código do produto selecionado.
+- servico:  0 (number, required) - Código do servico selecionado.
+- detalhe: Cor,Sabor,etc (string, optional) - Detalhes sobre o produto ou servico selecionado
 - quantidade: 1 (number, required) - Quantidade de produtos do pedido.
 - preco: 12.50 (number, required) - Valor do produto.
-- subtotal: 12.50 (number, required) - subtotal (quantidade * preço) do pedido.
 
-## ItemProduto Full (object)
-Um produto associado ao item do pedido realizado pelo consumidor para um comerciante.
+## Item Full (object)
+Um produto ou servico associado ao item do pedido realizado pelo consumidor para um comerciante.
 
 ## Properties
 - id: 1 (number, required) - O identificador exclusivo do item.
-- pedido: 2001 (number, required) - Nome da categoria.
+- pedido: 2001 (number, required) - Código do pedido.
 - produto: 10 (number, required) - Código do produto selecionado.
+- servico:  0 (number, required) - Código do servico selecionado.
+- detalhe: Cor,Sabor,etc (string, optional) - Detalhes sobre o produto ou servico selecionado
 - quantidade: 1 (number, required) - Quantidade de produtos do pedido.
 - preco: 12.50 (number, required) - Valor do produto.
-- subtotal: 12.50 (number, required) - subtotal (quantidade * preço) do pedido.
-
-## ItemServiço Create (object)
-Um serviço associado ao item do pedido realizado pelo consumidor para um comerciante.
-
-## Properties
-- pedido: 2001 (number, required) - Nome da categoria.
-- serviço: 10 (number, required) - Código do serviço selecionado.
-- quantidade: 1 (number, required) - Quantidade de serviços do pedido.
-- preço: 12.50 (number, required) - Valor do serviço.
-- subtotal: 12.50 (number, required) - subtotal (quantidade * preço) do pedido.
-
-## ItemServiço Full (object)
-Um serviço associado ao item do pedido realizado pelo consumidor para um comerciante.
-
-## Properties
-- id: 1 (number, required) - O identificador exclusivo do item.
-- pedido: 2001 (number, required) - Nome da categoria.
-- serviço: 10 (number, required) - Código do serviço selecionado.
-- quantidade: 1 (number, required) - Quantidade de serviços do pedido.
-- preço: 12.50 (number, required) - Valor do serviço.
-- subtotal: 12.50 (number, required) - subtotal (quantidade * preço) do pedido.
 
 
 ## Anuncio Create (object)
