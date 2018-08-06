@@ -397,30 +397,32 @@ Um fornecedor de produtos ou serviços para a comunidade.
 
 ## Properties
 - nome: Pães dos Sonhos (string, required) - Nome fantasia do comerciante.
-- comunidade: 10 (number, required) - Código da comunidade.
+- comunidade: 1 (number, required) - Código da comunidade.
+- categoria: 1 (number, required) - Código da categoria.
 
 ## Comerciante Full (object)
 Um fornecedor de produtos ou serviços para a comunidade.
 
 ## Properties
-- id: 1 (number, required) - O identificador exclusivo de um comerciante.
+- id: 2002 (number, required) - O identificador exclusivo de um comerciante.
 - nome: Pães dos Sonhos (string, required) - Nome fantasia do comerciante.
-- comunidade: 10 (number, required) - Código da comunidade.
+- comunidade: 1 (number, required) - Código da comunidade.
+- categoria: 1 (number, required) - Código da categoria.
 
 ## Produto Create (object)
 Um produto oferecido pelo comerciante.
 
 ## Properties
 - nome: Pão integral (string, required) - Nome do produto.
-- categoria: 10 (number, required) - Código da categoria.
+- categoria: 1 (number, required) - Código da categoria.
 
 ## Produto Full (object)
 Um produto oferecido pelo comerciante.
 
 ## Properties
-- id: 10 (number, required) - O identificador exclusivo de um produto.
+- id: 1 (number, required) - O identificador exclusivo de um produto.
 - nome: Pão integral (string, required) - Nome do produto.
-- categoria: 10 (number, required) - Código da categoria.
+- categoria: 1 (number, required) - Código da categoria.
 
 
 ## Servico Create (object)
@@ -428,7 +430,7 @@ Um serviço prestado pelo comerciante.
 
 ## Properties
 - nome: Pintura da residência (string, required) - Nome da categoria.
-- categoria: 10 (number, required) - Código da categoria.
+- categoria: 2 (number, required) - Código da categoria.
 
 ## Servico Full (object)
 Um serviço prestado pelo comerciante.
@@ -436,7 +438,7 @@ Um serviço prestado pelo comerciante.
 ## Properties
 - id: 1 (number, required) - O identificador exclusivo do serviço.
 - nome: Pintura da residência (string, required) - Nome da categoria.
-- categoria: 10 (number, required) - Código da categoria.
+- categoria: 2 (number, required) - Código da categoria.
 
 
 ## Pedido Create (object)
@@ -455,8 +457,8 @@ Um pedido realizado pelo consumidor para um comerciante.
 - id: 1 (number, required) - O identificador exclusivo do pedido.
 - data: 10/08/2018 (string, required) - Data da criação do pedido.
 - consumidor: 100 (number, required) - Código do consumidor responsável pelo pedido.
-- comerciante: 1001 (number, required) - Código do comerciante responsável.
-- itens: [{ "produto": 10, "servico":  0, "detalhe": "Presente", "quantidade": 1, "preco": 12.50 }, { "produto": 0, "servico":  120, "detalhe": "enviar orçamento", "quantidade": 1, "preco": 12.50 }] (array, required) - Itens associados ao pedido
+- comerciante: 2002 (number, required) - Código do comerciante responsável.
+- itens: [{ "produto": 1, "servico":  0, "detalhe": "Presente", "quantidade": 1, "preco": 12.50 }, { "produto": 0, "servico":  1, "detalhe": "enviar orçamento", "quantidade": 1, "preco": 12.50 }] (array, required) - Itens associados ao pedido
 
 
 ## Item Create (object)
